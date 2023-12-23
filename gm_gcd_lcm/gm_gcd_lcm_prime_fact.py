@@ -61,7 +61,16 @@ print(f'{gcd = }')
 print(f'{lcm_dict = }')
 print(f'{lcm = }')
 
-# =============================================================================
+# =========================================================
 # terminal log / terminal log / terminal log /
 '''
+*** Greatest common divisor and Least common multiple ***
+numbers = [36, 120, 100]
+prmfac_lists = [[2, 2, 3, 3], [2, 2, 2, 3, 5], [2, 2, 5, 5]]
+prmfac_dicts = [{2: 2, 3: 2}, {2: 3, 3: 1, 5: 1}, {2: 2, 5: 2}]
+{2, 3, 5}
+gcd_dict = {2: 2, 3: 0, 5: 0}
+gcd = 4
+lcm_dict = {2: 3, 3: 2, 5: 2}
+lcm = 1800
 '''

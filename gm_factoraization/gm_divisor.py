@@ -12,7 +12,7 @@ for fac in range(1,number+1):
 print(f'{number = }')
 print(f'{divisors = }')
 
-# =============================================================================
+# =========================================================
 # terminal log / terminal log / terminal log /
 '''
 *** Devisor: listing ***

@@ -16,7 +16,7 @@ while num > 1:
 print(f'{number = }')
 print(f'{prmfac_list = }')
 
-# =============================================================================
+# =========================================================
 # terminal log / terminal log / terminal log /
 '''
 *** Prime factor: listing ***

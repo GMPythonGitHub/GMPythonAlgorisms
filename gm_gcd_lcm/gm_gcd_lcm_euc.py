@@ -34,8 +34,8 @@ print(f'{lcm = }')
 # =========================================================
 # terminal log / terminal log / terminal log /
 '''
-*** ------------ ***
-# -----------------------------------------------------------------------------
+*** Greatest common divisor and Least common multiple ***
+   *** Euclid's algorithm ***
 numbera = 36, numberb = 120
 gcd = 12
 lcm = 360
