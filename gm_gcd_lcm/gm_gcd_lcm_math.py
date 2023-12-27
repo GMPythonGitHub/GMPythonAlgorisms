@@ -1,33 +1,34 @@
-# gm_gcd_lcm_numpy.py: coded by Kinya MIURA 230415
+# gm_gcd_lcm_math.py: coded by Kinya MIURA 230415
 # ---------------------------------------------------------
 print('*** Greatest common divisor and Least common multiple ***')
-print('   *** using numpy function ***')
+print('   *** using math function ***')
 # ---------------------------------------------------------
-import numpy as np
+import math
 
 # =========================================================
 ## --- main routine --- ##
 
-print(np.gcd(36, 120))
-print(np.lcm(36, 120))
+print(math.gcd(36, 120))
+print(math.lcm(36, 120))
 
-print(np.gcd([36, 20], 120))
-print(np.lcm([36, 20], 120))
+'''
+print(math.gcd([36, 20], 120))
+print(math.lcm([36, 20], 120))
 
-print(np.gcd([36, 20], [120, 100]))
-print(np.lcm([36, 20], [120, 100]))
+print(math.gcd([36, 20], [120, 100]))
+print(math.lcm([36, 20], [120, 100]))
 
-print(np.gcd.reduce((36, 20, 120)))
-print(np.lcm.reduce((36, 20, 120)))
+print(math.gcd.reduce((36, 20, 120)))
+print(math.lcm.reduce((36, 20, 120)))
 
-print(np.gcd.reduce((36, 20, 120, 100)))
-print(np.lcm.reduce((36, 20, 120, 100)))
-
+print(math.gcd.reduce((36, 20, 120, 100)))
+print(math.lcm.reduce((36, 20, 120, 100)))
+'''
 # =========================================================
 # terminal log / terminal log / terminal log /
 '''
 *** Greatest common divisor and Least common multiple ***
-   *** using numpy functions ***
+   *** using math functions ***
 12
 360
 [12 20]
