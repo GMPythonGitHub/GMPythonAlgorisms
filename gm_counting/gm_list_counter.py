@@ -1,6 +1,6 @@
-# gm_list_counter: coded by Kinya MIURA 231229
+# gm_list_counter.py: coded by Kinya MIURA 231229
 # ---------------------------------------------------------
-print('*** List counter: module collections ***')
+print('*** List: counter, collections ***')
 # ---------------------------------------------------------
 import collections
 
@@ -28,7 +28,7 @@ print(conts.most_common(2))
 # =========================================================
 # terminal log / terminal log / terminal log /
 '''
-*** List counter: module collections ***
+*** List: counter, collections ***
 conts = Counter({'a': 5, 'd': 3, 'b': 2, 'e': 1})
 
 conts["a"] = 5

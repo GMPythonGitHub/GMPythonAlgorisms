@@ -1,4 +1,4 @@
-# gm_list_sum: coded by Kinya MIURA 231229
+# gm_list_len_sum_max_min.py: coded by Kinya MIURA 231229
 # ---------------------------------------------------------
 print('*** List: len, sum, max, min ***')
 

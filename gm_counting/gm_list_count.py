@@ -1,6 +1,6 @@
-# gm_list_count: coded by Kinya MIURA 231229
+# gm_list_counting.py: coded by Kinya MIURA 231229
 # ---------------------------------------------------------
-print('*** List count: counting items ***')
+print('*** List: count ***')
 
 # =========================================================
 ## --- main routine --- ##
@@ -32,7 +32,7 @@ print(f'{conts_dic[2] = }')
 # =========================================================
 # terminal log / terminal log / terminal log /
 '''
-*** List count: counting items ***
+*** List: count ***
 ls = [0, 0, 0, 0, 0, 1, 1, 3, 3, 3, 4]
 
 ls.count(0) = 5
