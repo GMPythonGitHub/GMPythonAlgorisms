@@ -1,4 +1,4 @@
-# gm_sort_array.py: coded by Kinya MIURA 231229
+# gm_partial_sum.py: coded by Kinya MIURA 231229
 # ---------------------------------------------------------
 print('*** Sort: array ***')
 # ---------------------------------------------------------
