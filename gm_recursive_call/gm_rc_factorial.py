@@ -1,7 +1,9 @@
 # gm_rc_factorial.py: coded by Kinya MIURA 230414
 # ---------------------------------------------------------
 print('*** Recursive call: factorial ***')
-
+# import sys
+# print(sys.getrecursionlimit())
+# sys.setrecursionlimit(2000)
 # =========================================================
 ## --- defining function --- ##
 def rc_factorial(nn) -> int:
