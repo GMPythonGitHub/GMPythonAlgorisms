@@ -5,48 +5,44 @@ print('*** List: count ***')
 # =========================================================
 ## --- main routine --- ##
 ls = [0, 0, 0, 0, 0, 1, 1, 3, 3, 3, 4]
-print(f'{ls = }')
+print(f'{ls = } \n')
 
-print()
 print(f'{ls.count(0) = }')
 print(f'{ls.count(1) = }')
-print(f'{ls.count(2) = }')
+print(f'{ls.count(2) = } \n')
 
-print()
 itms = range(6)
-conts = [ls.count(itm) for itm in itms]
-print(conts)
-conts_dic = {itm: ls.count(itm) for itm in itms}
-print(conts_dic)
+counts = [ls.count(itm) for itm in itms]
+print(counts)
+counts_dic = {itm: ls.count(itm) for itm in itms}
+print(counts_dic, '\n')
 
-print()
-print(f'{conts_dic.keys() = }')
-print(f'{conts_dic.values() = }')
-print(f'{conts_dic.items() = }')
+print(f'{counts_dic.keys() = }')
+print(f'{counts_dic.values() = }')
+print(f'{counts_dic.items() = } \n')
 
-print()
-print(f'{conts_dic[0] = }')
-print(f'{conts_dic[1] = }')
-print(f'{conts_dic[2] = }')
+print(f'{counts_dic[0] = }')
+print(f'{counts_dic[1] = }')
+print(f'{counts_dic[2] = }')
 
 # =========================================================
 # terminal log / terminal log / terminal log /
 '''
 *** List: count ***
-ls = [0, 0, 0, 0, 0, 1, 1, 3, 3, 3, 4]
+ls = [0, 0, 0, 0, 0, 1, 1, 3, 3, 3, 4] 
 
 ls.count(0) = 5
 ls.count(1) = 2
-ls.count(2) = 0
+ls.count(2) = 0 
 
 [5, 2, 0, 3, 1, 0]
-{0: 5, 1: 2, 2: 0, 3: 3, 4: 1, 5: 0}
+{0: 5, 1: 2, 2: 0, 3: 3, 4: 1, 5: 0} 
 
-conts_dic.keys() = dict_keys([0, 1, 2, 3, 4, 5])
-conts_dic.values() = dict_values([5, 2, 0, 3, 1, 0])
-conts_dic.items() = dict_items([(0, 5), (1, 2), (2, 0), (3, 3), (4, 1), (5, 0)])
+counts_dic.keys() = dict_keys([0, 1, 2, 3, 4, 5])
+counts_dic.values() = dict_values([5, 2, 0, 3, 1, 0])
+counts_dic.items() = dict_items([(0, 5), (1, 2), (2, 0), (3, 3), (4, 1), (5, 0)]) 
 
-conts_dic[0] = 5
-conts_dic[1] = 2
-conts_dic[2] = 0
+counts_dic[0] = 5
+counts_dic[1] = 2
+counts_dic[2] = 0
 '''
