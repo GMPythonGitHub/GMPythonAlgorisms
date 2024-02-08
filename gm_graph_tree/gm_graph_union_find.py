@@ -1,4 +1,4 @@
-## gm_graph_tree_union_find.py: Coded by Kinya MIURA, 240126
+## gm_graph_union_find.py: Coded by Kinya MIURA, 240126
 
 from collections import defaultdict
 

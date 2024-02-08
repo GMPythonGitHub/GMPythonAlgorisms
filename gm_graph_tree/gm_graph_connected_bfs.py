@@ -1,11 +1,10 @@
-## gm_graph_tree_connected_dfs.py: Coded by Kinya MIURA, 240207
-## graff tee structure: connected: depth first serch
+## gm_graph_connected_bfs.py: Coded by Kinya MIURA, 240207
+## graph structure: connected: breadth first serch
 
-import sys
-sys.setrecursionlimit(1000000)
+from collections import deque
 
 NM = '9 8'
-S = int('0')
+S = '0'
 L = ['1 2', '1 3', '2 4', '2 5', '3 6', '4 7', '6 8', '6 9']
 # -----------------------------
 
@@ -17,25 +16,24 @@ for Li in L:
     links[uu].append(vv)
     links[vv].append(uu)
 print(f'{links = }')
+S = int(S) - 1
 
-def dfsrc(nodeo):
-    global visited
-    for node in links[nodeo]:
-        if not visited[node]:
-            visited[node] = True
-            dfsrc(node)
-    print(f'{nodeo = }, {visited = }')
-    return
-
-def dfs(nodeo):
+def bfs(nodeo):
     global visited
     visited = [False for _ in range(N)]
     visited[nodeo] = True
-    dfsrc(nodeo)
+    nodes = deque([nodeo])
+    while len(nodes) > 0:
+        nodeo = nodes.popleft()
+        for node in links[nodeo]:
+            if not visited[node]:
+                visited[node] = True
+                nodes.append(node)
+        print(f'{nodeo = }, {nodes = }, {visited = }')
     return
 
 visited = []
-dfs(S)
+bfs(S)
 print(f'{visited = }')
 if False not in visited:
     print('connected')

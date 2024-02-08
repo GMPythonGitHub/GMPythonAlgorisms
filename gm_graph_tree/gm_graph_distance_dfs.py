@@ -1,15 +1,16 @@
-## gm_graph_tree_distance_dfs.py: Coded by Kinya MIURA, 240207
-## graff tee structure: distance: depth first serch
+## gm_graph_distance_dfs.py: Coded by Kinya MIURA, 240207
+## graph structure: distance: depth first serch
 
 import sys
 sys.setrecursionlimit(1000000)
 
 NM = '9 9'
-S = int('8')
+S = '8'
 L = ['1 2', '1 3', '2 4', '2 5', '3 6', '4 7', '6 8', '6 9', '7 9']
 # -----------------------------
 
 N, M = map(int, NM.split())
+S = int(S) - 1
 
 links = [[] for _ in range(N)]
 for Li in L:
@@ -17,7 +18,6 @@ for Li in L:
     links[uu].append(vv)
     links[vv].append(uu)
 print(f'{links = }')
-S -= 1
 
 def dfsrc(nodeo):
     global visited, distance

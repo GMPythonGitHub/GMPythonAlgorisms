@@ -1,5 +1,5 @@
-## gm_graph_tree_shortest_dfs.py: Coded by Kinya MIURA, 240207
-## graff tee structure: shortest: depth first serch
+## gm_graph_size_dfs.py: Coded by Kinya MIURA, 240207
+## graph structure: size: depth first serch
 
 import sys
 sys.setrecursionlimit(1000000)

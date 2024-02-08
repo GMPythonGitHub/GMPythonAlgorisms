@@ -1,5 +1,5 @@
-## gm_graph_tree_distance_bfs.py: Coded by Kinya MIURA, 240207
-## graff tee structure: distance: breadth first serch
+## gm_graph_size_bfs.py: Coded by Kinya MIURA, 240207
+## graph structure: size: breadth first serch
 
 from collections import deque
 
@@ -25,8 +25,8 @@ def bfs(nodeo):
     nodes = deque([nodeo])
     while len(nodes) > 0:
         nodeo = nodes.popleft()
-        dist = distance[nodeo] + 1
         for node in links[nodeo]:
+            dist = distance[nodeo] + 1
             if not visited[node] or distance[node] > dist:
                 visited[node] = True
                 distance[node] = dist
