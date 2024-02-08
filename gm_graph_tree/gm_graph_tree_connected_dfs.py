@@ -5,6 +5,7 @@ import sys
 sys.setrecursionlimit(1000000)
 
 NM = '9 8'
+S = int('0')
 L = ['1 2', '1 3', '2 4', '2 5', '3 6', '4 7', '6 8', '6 9']
 # -----------------------------
 
@@ -17,19 +18,21 @@ for Li in L:
     links[vv].append(uu)
 print(f'{links = }')
 
-visited = [False for _ in range(N)]
-def dfs(nodeo):
-    global visited
-    print(f'{nodeo = }')
+def dfsrc(nodeo, visited):
     for node in links[nodeo]:
         if not visited[node]:
             visited[node] = True
-            dfs(node)
+            dfsrc(node, visited)
+    print(f'{nodeo = }, {visited = }')
     return
 
-start = 6
-visited[start] = True
-dfs(start)
+def dfs(nodeo):
+    visited = [False for _ in range(N)]
+    visited[nodeo] = True
+    dfsrc(nodeo, visited)
+    return visited
+
+visited = dfs(S)
 print(f'{visited = }')
 if False not in visited:
     print('connected')
