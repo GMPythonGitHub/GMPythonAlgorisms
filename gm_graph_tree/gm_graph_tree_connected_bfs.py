@@ -18,6 +18,7 @@ for Li in L:
 print(f'{links = }')
 
 def bfs(nodeo):
+    global visited
     visited = [False for _ in range(N)]
     visited[nodeo] = True
     nodes = deque([nodeo])
@@ -28,9 +29,10 @@ def bfs(nodeo):
                 visited[node] = True
                 nodes.append(node)
         print(f'{nodeo = }, {nodes = }, {visited = }')
-    return visited
+    return
 
-visited = bfs(S)
+visited = []
+bfs(S)
 print(f'{visited = }')
 if False not in visited:
     print('connected')

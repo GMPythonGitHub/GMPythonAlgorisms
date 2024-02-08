@@ -17,35 +17,45 @@ for Li in L:
 print(f'{links = }')
 # -----------------------------
 
-checked = [False for _ in range(N)]
+def bfs(nodeo):
+    global visited, distance
+    visited = [False for _ in range(N)]
+    distance = [0 for _ in range(N)]
+    visited[nodeo] = True
+    nodes = deque([nodeo])
+    while len(nodes) > 0:
+        nodeo = nodes.popleft()
+        dist = distance[nodeo] + 1
+        for node in links[nodeo]:
+            if not visited[node] or distance[node] > dist:
+                visited[node] = True
+                distance[node] = dist
+                nodes.append(node)
+        # print(f'{nodeo = }, {nodes = }, {visited = }, {distance = }')
+    return
 
-visited = [False for _ in range(N)]
-distance = [0 for _ in range(N)]
-start = 0
-checked[start] = True
-visited[start] = True
-distance[start] = 0
-bfs = deque([start])
-while len(bfs) > 0:
-    nodeo = bfs.popleft()
-    dist = distance[nodeo] + 1
-    for node in links[nodeo]:
-        if not visited[node] or distance[node] > dist:
-            visited[node] = True
-            distance[node] = dist
-            bfs.append(node)
-    print(f'{nodeo = }, {bfs = }, {visited = }, {distance = }')
+checked = [False for _ in range(N)]
+visited, distance = [], []
+S = 0
+bfs(S)
 print(f'{visited = }')
 print(f'{distance = }')
 
 dst_max = max(distance)
-start = distance.index(dst_max)
-print(f'{dst_max = }, {start = }')
 for ii, dst in enumerate(distance):
     if dst < dst_max:
         checked[ii] = True
 print(f'{checked = }')
 
+for S, chk in enumerate(checked):
+    if chk:
+        continue
+    print(f'{S = }')
+    bfs(S)
+    print(f'{visited = }')
+    print(f'{distance = }')
+    dst_max = max(dst_max, max(distance))
+print(dst_max)
 
 '''
 links = [[1, 2], [0, 3, 4], [0, 5], [1, 6], [1], [2, 7, 8], [3, 8], [5], [5, 6]]

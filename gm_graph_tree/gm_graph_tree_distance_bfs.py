@@ -4,7 +4,7 @@
 from collections import deque
 
 NM = '9 9'
-S = int('0')
+S = int('8')
 L = ['1 2', '1 3', '2 4', '2 5', '3 6', '4 7', '6 8', '6 9', '7 9']
 # -----------------------------
 
@@ -16,8 +16,10 @@ for Li in L:
     links[uu].append(vv)
     links[vv].append(uu)
 print(f'{links = }')
+S -= 1
 
 def bfs(nodeo):
+    global visited, distance
     visited = [False for _ in range(N)]
     distance = [0 for _ in range(N)]
     visited[nodeo] = True
@@ -31,9 +33,10 @@ def bfs(nodeo):
                 distance[node] = dist
                 nodes.append(node)
         print(f'{nodeo = }, {nodes = }, {visited = }, {distance = }')
-    return visited, distance
+    return
 
-visited, distance = bfs(S)
+visited, distance = [], []
+bfs(S)
 print(f'{visited = }')
 print(f'{distance = }')
 

@@ -5,7 +5,7 @@ import sys
 sys.setrecursionlimit(1000000)
 
 NM = '9 9'
-S = int('0')
+S = int('8')
 L = ['1 2', '1 3', '2 4', '2 5', '3 6', '4 7', '6 8', '6 9', '7 9']
 # -----------------------------
 
@@ -17,25 +17,29 @@ for Li in L:
     links[uu].append(vv)
     links[vv].append(uu)
 print(f'{links = }')
+S -= 1
 
-def dfsrc(nodeo, visited, distance):
+def dfsrc(nodeo):
+    global visited, distance
     for node in links[nodeo]:
         dist = distance[nodeo] + 1
         if not visited[node] or distance[node] > dist :
             visited[node] = True
             distance[node] = dist
-            dfsrc(node, visited, distance)
+            dfsrc(node)
     print(f'{nodeo = }, {visited = }, {distance = }')
     return
 
 def dfs(nodeo):
+    global visited, distance
     visited = [False for _ in range(N)]
     distance = [0 for _ in range(N)]
     visited[nodeo] = True
-    dfsrc(nodeo, visited, distance)
-    return visited, distance
+    dfsrc(nodeo)
+    return
 
-visited, distance = dfs(S)
+visited, distance = [], []
+dfs(S)
 print(f'{visited = }')
 print(f'{distance = }')
 

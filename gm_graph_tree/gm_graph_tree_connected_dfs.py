@@ -18,21 +18,24 @@ for Li in L:
     links[vv].append(uu)
 print(f'{links = }')
 
-def dfsrc(nodeo, visited):
+def dfsrc(nodeo):
+    global visited
     for node in links[nodeo]:
         if not visited[node]:
             visited[node] = True
-            dfsrc(node, visited)
+            dfsrc(node)
     print(f'{nodeo = }, {visited = }')
     return
 
 def dfs(nodeo):
+    global visited
     visited = [False for _ in range(N)]
     visited[nodeo] = True
-    dfsrc(nodeo, visited)
-    return visited
+    dfsrc(nodeo)
+    return
 
-visited = dfs(S)
+visited = []
+dfs(S)
 print(f'{visited = }')
 if False not in visited:
     print('connected')
