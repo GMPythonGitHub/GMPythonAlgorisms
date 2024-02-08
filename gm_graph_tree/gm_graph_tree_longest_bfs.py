@@ -15,6 +15,7 @@ for Li in L:
     links[uu].append(vv)
     links[vv].append(uu)
 print(f'{links = }')
+# -----------------------------
 
 checked = [False for _ in range(N)]
 

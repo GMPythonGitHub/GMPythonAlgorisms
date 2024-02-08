@@ -16,46 +16,45 @@ for Li in L:
     links[uu].append(vv)
     links[vv].append(uu)
 print(f'{links = }')
+# -----------------------------
 
-def dfs(nodeo):
-    global visited, distance
+def dfsrc(nodeo, visited, distance):
     for node in links[nodeo]:
-        dist = distance[nodeo]+1
+        dist = distance[nodeo] + 1
         if not visited[node] or distance[node] > dist :
             visited[node] = True
             distance[node] = dist
-            dfs(node)
-    # print(f'{nodeo = }, {visited = }, {distance = }')
+            dfsrc(node, visited, distance)
+    print(f'{nodeo = }, {visited = }, {distance = }')
     return
+
+def dfs(nodeo):
+    visited = [False for _ in range(N)]
+    distance = [0 for _ in range(N)]
+    visited[nodeo] = True
+    dfsrc(nodeo, visited, distance)
+    return visited, distance
 
 checked = [False for _ in range(N)]
 
-visited = [False for _ in range(N)]
-distance = [0 for _ in range(N)]
-start = 0
-checked[start] = True
-visited[start] = True
-distance[start] = 0
-dfs(start)
+S = 0
+checked[S] = True
+visited, distance = dfs(S)
 print(f'{visited = }')
 print(f'{distance = }')
 
 dst_max = max(distance)
-start = distance.index(dst_max)
-print(f'{dst_max = }, {start = }')
+S = distance.index(dst_max)
+print(f'{dst_max = }, {S = }')
 for ii, dst in enumerate(distance):
     if dst < dst_max:
         checked[ii] = True
 print(f'{checked = }')
 
-for start, chk in enumerate(checked):
+for S, chk in enumerate(checked):
     if chk:
         continue
-    visited = [False for _ in range(N)]
-    distance = [0 for _ in range(N)]
-    visited[start] = True
-    distance[start] = 0
-    dfs(start)
+    visited, diatance = dfs(S)
     print(f'{visited = }')
     print(f'{distance = }')
     dst_max = max(dst_max, max(distance))
