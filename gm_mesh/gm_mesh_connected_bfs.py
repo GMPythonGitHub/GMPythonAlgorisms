@@ -1,10 +1,10 @@
-## gm_graph_distance_bfs.py: Coded by Kinya MIURA, 240207
+## gm_graph_connected_bfs.py: Coded by Kinya MIURA, 240207
 ## graph structure: distance: breadth first serch
 
 from collections import deque
 
 HW = '4 4'
-M = ['....', '..s.', '....', '....']
+M = ['...s', '....', '....', '.g..']
 # -----------------------------
 
 H, W = map(int, HW.split())
@@ -17,26 +17,37 @@ for i in range(1,H+1):
         if C[i][j] == 's':
             S = (i, j)
             C[i][j] = '.'
+        if C[i][j] == 'g':
+            G = (i, j)
+            C[i][j] = '.'
+        if S is not None and G is not None:
             break
 
 def bfs(grido):
     global C
     grids = deque([grido])
-    C[grido[0]][grido[1]] = 0
+    C[grido[0]][grido[1]] = 'S'
     while len(grids) > 0:
         grido = grids.popleft()
         for Di in D:
             grid = (grido[0] + Di[0], grido[1] + Di[1])
             Cgrid = C[grid[0]][grid[1]]
-            dist = C[grido[0]][grido[1]] + 1
-            if (Cgrid == '.' or (Cgrid != '#' and Cgrid > dist)):
-                C[grid[0]][grid[1]] = dist
+            # dist = C[grido[0]][grido[1]] + 1
+            if Cgrid == '.':
+                C[grid[0]][grid[1]] = '+'
                 grids.append(grid)
+                if grid == G:
+                    grids.clear()
+                    break
         print(f'{grido = }, {grids = }')
     return
 
 bfs(S)
 for Ci in C: print(''.join(map(str,Ci)))
+if C[G[0]][G[1]] == '+':
+    print('Yes')
+else:
+    print('No')
 
 
 '''

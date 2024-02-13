@@ -2,19 +2,18 @@
 # ---------------------------------------------------------
 print('*** Prime factor: counting ***')
 
+from collections import defaultdict
+
 # =========================================================
 ## --- main routine --- ##
 number = 60 * 60 * 24
 prmfac_list = []  # list of prime factors
-prmfac_dict = {}  # dict of prime factors
+prmfac_dict = defaultdict(int)  # defaultdict of prime factors
 num, prmfac = number, 2
 while num > 1:
     if num % prmfac == 0:
         prmfac_list.append(prmfac)
-        if prmfac not in prmfac_dict:
-            prmfac_dict[prmfac] = 1
-        else:
-            prmfac_dict[prmfac] += 1
+        prmfac_dict[prmfac] += 1
         num //= prmfac
     else:
         prmfac += 1
