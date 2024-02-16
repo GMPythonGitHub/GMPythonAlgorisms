@@ -41,9 +41,9 @@ bfs(S)
 print(f'{visited = }')
 print(f'{distance = }')
 
-dst_max = max(distance)
+distmax = max(distance)
 for ii, dst in enumerate(distance):
-    if dst < dst_max:
+    if dst < distmax:
         checked[ii] = True
 print(f'{checked = }')
 
@@ -54,8 +54,8 @@ for S, chk in enumerate(checked):
     bfs(S)
     print(f'{visited = }')
     print(f'{distance = }')
-    dst_max = max(dst_max, max(distance))
-print(dst_max)
+    distmax = max(distmax, max(distance))
+print(distmax)
 
 '''
 links = [[1, 2], [0, 3, 4], [0, 5], [1, 6], [1], [2, 7, 8], [3, 8], [5], [5, 6]]

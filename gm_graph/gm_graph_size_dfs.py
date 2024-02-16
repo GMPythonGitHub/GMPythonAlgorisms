@@ -45,9 +45,9 @@ dfs(S)
 print(f'{visited = }')
 print(f'{distance = }')
 
-dst_max = max(distance)
+distmax = max(distance)
 for ii, dst in enumerate(distance):
-    if dst < dst_max:
+    if dst < distmax:
         checked[ii] = True
 print(f'{checked = }')
 
@@ -58,8 +58,8 @@ for S, chk in enumerate(checked):
     dfs(S)
     print(f'{visited = }')
     print(f'{distance = }')
-    dst_max = max(dst_max, max(distance))
-print(dst_max)
+    distmax = max(distmax, max(distance))
+print(distmax)
 
 
 '''
