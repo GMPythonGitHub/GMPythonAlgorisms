@@ -1,12 +1,13 @@
 ## vector.py: Coded by Kinya MIURA, 240210
 
-# a1, a2 = 1, 1
-# an = an-1 + an-2
+# a1, a2, a3 = 1, 1, 2
+# an = an-1 + an-2 + an-3
 
-N, = map(int, '10'.split())
+N, = map(int, '3'.split())
 mod = 10**9 + 7
-vct = [1, 1]
-mtx = [[2, 1], [1, 0]]
+vct = [2, 1, 1]
+mtx = [[1, 1, 1], [1, 0, 0], [0, 1, 0]]
+
 
 
 def modv(v, sc):
@@ -29,7 +30,7 @@ def dotmm(ma, mb):
         return [[dotvv(mai, mbtj) for mbtj in mbt] for mai in ma]
     else: return None
 
-num = N - 2
+num = N - 3
 while num > 0:
     if num % 2 == 1:
         vct = modv(dotmv(mtx, vct), mod)

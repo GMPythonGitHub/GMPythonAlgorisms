@@ -3,23 +3,20 @@
 def addm(ma, mb):
     if len(ma) == len(mb) and len(ma[0]) == len(mb[0]):
         return [[maij + mbij for maij, mbij in zip(mai, mbi)] for mai, mbi in zip(ma, mb)]
-    else:
-        return None
+    else: return None
 def subm(ma, mb):
     if len(ma) == len(mb) and len(ma[0]) == len(mb[0]):
         return [[maij - mbij for maij, mbij in zip(mai, mbi)] for mai, mbi in zip(ma, mb)]
-    else:
-        return None
+    else: return None
 def mulm(ma, mb):
     if len(ma) == len(mb) and len(ma[0]) == len(mb[0]):
         return [[maij * mbij for maij, mbij in zip(mai, mbi)] for mai, mbi in zip(ma, mb)]
-    else:
-        return None
+    else: return None
 def divm(ma, mb):
     if len(ma) == len(mb) and len(ma[0]) == len(mb[0]):
         return [[maij / mbij for maij, mbij in zip(mai, mbi)] for mai, mbi in zip(ma, mb)]
-    else:
-        return None
+    else: return None
+
 def addms(m, sc):
     return [[mij + sc for mij in mi] for mi in m]
 def subms(m, sc):
@@ -39,19 +36,16 @@ def trnm(m):
 def dotvv(ma, mb):
     if len(ma) == len(mb):
         return sum([mai * mbi for mai, mbi in zip(ma, mb)])
-    else:
-        return None
+    else: return None
 def dotmv(m, v):
     if len(m[0]) == len(v):
         return [dotvv(mi, v) for mi in m]
-    else:
-        return None
+    else: return None
 def dotmm(ma, mb):
     if len(ma[0]) == len(mb):
         mbt = trnm(mb)
         return [[dotvv(mai, mbtj) for mbtj in mbt] for mai in ma]
-    else:
-        return None
+    else: return None
 
 # --------------------
 

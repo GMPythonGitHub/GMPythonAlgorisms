@@ -3,23 +3,19 @@
 def addv(va, vb):
     if len(va) == len(vb):
         return [vai + vbi for vai, vbi in zip(va, vb)]
-    else:
-        return None
+    else: return None
 def subv(va, vb):
     if len(va) == len(vb):
         return [vai - vbi for vai, vbi in zip(va, vb)]
-    else:
-        return None
+    else: return None
 def mulv(va, vb):
     if len(va) == len(vb):
         return [vai * vbi for vai, vbi in zip(va, vb)]
-    else:
-        return None
+    else: return None
 def divv(va, vb):
     if len(va) == len(vb):
         return [vai / vbi for vai, vbi in zip(va, vb)]
-    else:
-        return None
+    else: return None
 def addvs(v, sc):
     return [vi + sc for vi in v]
 def subvs(v, sc):
@@ -36,13 +32,11 @@ def modv(v, sc):
 def dstv(va, vb):
     if len(va) == len(vb):
         return sum([(vbi - vai) ** 2 for vai, vbi in zip(va, vb)]) ** 0.5
-    else:
-        return None
+    else: return None
 def innerv(va, vb):
     if len(va) == len(vb):
         return sum([vai * vbi for vai, vbi in zip(va, vb)])
-    else:
-        return None
+    else: return None
 def innervt(vo, vp, vq):
     return innerv(subv(vp, vo), subv(vq, vo))
 def outerv(va, vb):

@@ -45,20 +45,7 @@ def dotmv(m, v):
         return None
 def dotmm(ma, mb):
     if len(ma[0]) == len(mb):
-        return [[dotvv(mai, [mbi[ii] for mbi in mb]) for ii, mai in enumerate(ma)]
-
-
-
-        mtx = []
-        for i in range(len(ma)):
-            vct = []
-            for j in range(len(mb[0])):
-                val = 0
-                for k in range(len(ma[0])):
-                    val += ma[i][k] * mb[k][j]
-                vct.append(val)
-            mtx.append(vct)
-        return mtx
+        return [[dotvv(mai, [mbi[ii] for mbi in mb]) for ii, mai in enumerate(ma)]]
     else:
         return None
 
