@@ -1,36 +1,67 @@
-## gm_vector.py: Coded by Kinya MIURA, 240120
+## gm_vector.py: Coded by Kinya MIURA, 240218
 
-def add(va, vb):
-    return([va[0]+vb[0], va[1]+vb[1]])
-def sub(va, vb):
-    return([va[0]-vb[0], va[1]-vb[1]])
-def mul(va, vb):
-    return([va[0]*vb[0], va[1]*vb[1]])
-def div(va, vb):
-    return([va[0]/vb[0], va[1]/vb[1]])
+def addv(va, vb):
+    if len(va) == len(vb):
+        return [vai + vbi for vai, vbi in zip(va, vb)]
+    else:
+        return None
+def subv(va, vb):
+    if len(va) == len(vb):
+        return [vai - vbi for vai, vbi in zip(va, vb)]
+    else:
+        return None
+def mulv(va, vb):
+    if len(va) == len(vb):
+        return [vai * vbi for vai, vbi in zip(va, vb)]
+    else:
+        return None
+def divv(va, vb):
+    if len(va) == len(vb):
+        return [vai / vbi for vai, vbi in zip(va, vb)]
+    else:
+        return None
+def addvs(v, sc):
+    return [vi + sc for vi in v]
+def subvs(v, sc):
+    return [vi - sc for vi in v]
+def mulvs(v, sc):
+    return [vi * sc for vi in v]
+def divvs(v, sc):
+    return [vi / sc for vi in v]
+def tdvv(v, sc):
+    return [vi // sc for vi in v]
+def modv(v, sc):
+    return [vi % sc for vi in v]
 
-def dst(va, vb):
-    return ((va[0]-vb[0])**2 + (va[1]-vb[1])**2)**0.5
+def dstv(va, vb):
+    if len(va) == len(vb):
+        return sum([(vbi - vai) ** 2 for vai, vbi in zip(va, vb)]) ** 0.5
+    else:
+        return None
+def innerv(va, vb):
+    if len(va) == len(vb):
+        return sum([vai * vbi for vai, vbi in zip(va, vb)])
+    else:
+        return None
+def innervt(vo, vp, vq):
+    return innerv(subv(vp, vo), subv(vq, vo))
+def outerv(va, vb):
+    return [[vai * vbj for vbj in vb] for vai in va]
+def outervt(vo, vp, vq):
+    return outerv(subv(vp, vo), subv(vq, vo))
 
-def dot(va, vb):
-    return va[0]*vb[0] + va[1]*vb[1]
-def inner3(vo, vp, vq):
-    return inner(sub(vp, vo), sub(vq, vo))
-def outer(va, vb):
-    return [
-        [va[0]*vb[0], va[0]*vb[1]],
-        [va[1]*vb[0], va[1]*vb[1]] ]
-def outer3(vo, vp, vq):
-    return outer(sub(vp, vo), sub(vq, vo))
-def cross(va, vb):
-    return va[0]*vb[1] - va[1]*vb[0]
-def cross3(vo, vp, vq):
-    return cross(sub(vp, vo), sub(vq, vo))
+# --------------------
 
-aa, bb = [10000000,10000000], [-10000000, 10000000]
-print(f'{add(aa,bb) = }, {sub(aa,bb) = }, {mul(aa,bb) = }, {div(aa,bb) = }')
-print(f'{dst(aa,bb) = }, {inner(aa,bb) = }, {outer(aa,bb) = }, {cross(aa,bb) = }')
+aa, bb = [1000,1000,1000], [-1000, 1000, 2000]
+print(f'{aa = }, {bb = }\n')
+print(f'{addv(aa,bb) = }\n{subv(aa,bb) = }\n{mulv(aa,bb) = }\n{divv(aa,bb) = }\n')
+print(f'{addvs(aa,500) = }\n{subvs(aa,500) = }\n{mulvs(aa,5) = }\n{divvs(aa,5) = }\n')
+print(f'{tdvv(aa,7) = }\n{modv(aa,7) = }\n')
+print(f'{dstv(aa,bb) = }\n{innerv(aa,bb) = }\n{outerv(aa,bb) = }\n')
 
-oo, pp, qq = [0,0], [10000000,10000000], [-10000000, 10000000]
-print(f'{inner3(oo,pp,qq) = }, {outer3(oo,pp,qq) = }, {cross3(oo,pp,qq) = }')
+# --------------------
+
+oo, pp, qq = [1000,1000,1000], [2000,2000,2000], [0, 2000, 3000]
+print(f'{oo = }, {pp = }, {qq = }\n')
+print(f'{innervt(oo,pp,qq) = }\n{outervt(oo,pp,qq) = }\n')
 
