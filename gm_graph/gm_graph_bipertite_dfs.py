@@ -10,11 +10,11 @@ NM = '6 7'
 L = ['1 6', '2 6', '3 6', '2 4', '3 5', '1 3', '1 4']
 # -----------------------------
 
-N, M = map(int, NM.split())
+N, M = map(int, input().split())
 
 links = [[] for _ in range(N)]
-for Li in L:
-    uu, vv = map(lambda x: int(x)-1, Li.split())
+for _ in range(M):
+    uu, vv = map(lambda x: int(x)-1, input().split())
     links[uu].append(vv)
     links[vv].append(uu)
 print(f'{links = }')

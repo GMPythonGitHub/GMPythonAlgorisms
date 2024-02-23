@@ -3,20 +3,15 @@
 
 from collections import deque
 
-NM = '9 8'
-S = '0'
-L = ['1 2', '1 3', '2 4', '2 5', '3 6', '4 7', '6 8', '6 9']
-# -----------------------------
-
-N, M = map(int, NM.split())
+N, M = map(int, input().split())
+S, = map(lambda x: int(x)-1, input().split())
 
 links = [[] for _ in range(N)]
-for Li in L:
-    uu, vv = map(lambda x: int(x)-1, Li.split())
+for _ in range(M):
+    uu, vv = map(lambda x: int(x)-1, input().split())
     links[uu].append(vv)
     links[vv].append(uu)
 print(f'{links = }')
-S = int(S) - 1
 
 def bfs(nodeo):
     global visited
@@ -39,4 +34,32 @@ if False not in visited:
     print('connected')
 else:
     print('not connected')
+
+'''
+[case a]  tree structure
+9 8
+1
+1 2
+1 3
+2 4
+2 5
+3 6
+4 7
+6 8
+6 9
+
+[case b]  looped route
+9 9
+1
+1 2
+1 3
+2 4
+2 5
+3 6
+4 7
+6 8
+6 9
+7 9
+
+'''
 
