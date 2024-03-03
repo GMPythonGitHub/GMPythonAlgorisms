@@ -1,6 +1,6 @@
-# gm_find_secret_number_single: coded by Kinya MIURA 230415
+# gm_Secret_Number_single: coded by Kinya MIURA 230415
 # ---------------------------------------------------------
-print('*** Find secret number: single number ***')
+print('*** Secret Number: single number ***')
 # ---------------------------------------------------------
 import random
 

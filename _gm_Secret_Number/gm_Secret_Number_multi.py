@@ -1,6 +1,6 @@
-# gm_find_secret_number_multi: coded by Kinya MIURA 230415
+# gm_Secret_Number_multi: coded by Kinya MIURA 230415
 # ---------------------------------------------------------
-print('*** Find seclet number: multi numbers ***')
+print('*** Secret Number: multi numbers ***')
 # ---------------------------------------------------------
 import random
 

@@ -4,13 +4,17 @@ print('*** Devisor: listing ***')
 
 # =========================================================
 ## --- main routine --- ##
-number = 180
-divisors = []  # list of devisors
-for fac in range(1,number+1):
-    if number % fac == 0:
-        divisors.append(fac)
-print(f'{number = }')
-print(f'{divisors = }')
+def divisors(num):
+    divisors = []  # list of devisors
+    for fac in range(1, num + 1):
+        if num % fac == 0:
+            divisors.append(fac)
+    return divisors
+
+num = 180
+divs = divisors(num)
+print(f'{num = }')
+print(f'{divs = }')
 
 # =========================================================
 # terminal log / terminal log / terminal log /
