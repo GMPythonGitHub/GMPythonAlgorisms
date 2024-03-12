@@ -6,12 +6,12 @@ from collections import deque
 N, M = map(int, input().split())
 S, = map(lambda x: int(x)-1, input().split())
 
-links = [[] for _ in range(N)]
+Links = [[] for _ in range(N)]
 for _ in range(M):
     uu, vv = map(lambda x: int(x)-1, input().split())
-    links[uu].append(vv)
-    links[vv].append(uu)
-print(f'{links = }')
+    Links[uu].append(vv)
+    Links[vv].append(uu)
+print(f'{Links = }')
 
 def bfs(nodeo):
     global visited
@@ -20,7 +20,7 @@ def bfs(nodeo):
     nodes = deque([nodeo])
     while len(nodes) > 0:
         nodeo = nodes.popleft()
-        for node in links[nodeo]:
+        for node in Links[nodeo]:
             if not visited[node]:
                 visited[node] = True
                 nodes.append(node)

@@ -4,23 +4,19 @@
 import sys
 sys.setrecursionlimit(1000000)
 
-NM = '9 8'
-L = ['1 2', '1 3', '2 4', '2 5', '3 6', '4 7', '6 8', '6 9', '7 9']
-# -----------------------------
+N, M = map(int, input().split())
 
-N, M = map(int, NM.split())
-
-links = [[] for _ in range(N)]
+UV = [[] for _ in range(N)]
 for Li in L:
     uu, vv = map(lambda x: int(x)-1, Li.split())
-    links[uu].append(vv)
-    links[vv].append(uu)
-print(f'{links = }')
+    UV[uu].append(vv)
+    UV[vv].append(uu)
+print(f'{UV = }')
 # -----------------------------
 
 def dfsrc(nodeo):
     global visited, distance
-    for node in links[nodeo]:
+    for node in UV[nodeo]:
         dist = distance[nodeo] + 1
         if not visited[node] or distance[node] > dist :
             visited[node] = True
@@ -63,6 +59,17 @@ print(distmax)
 
 
 '''
+[case a]
+9 8
+1 2
+1 3
+2 4
+2 5
+3 6
+4 7
+6 8
+6 9
+7 9
 
 '''
 
