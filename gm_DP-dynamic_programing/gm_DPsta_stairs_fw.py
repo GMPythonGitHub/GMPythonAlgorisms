@@ -6,8 +6,7 @@ print('*** DP; dynamic programing: stairs_forward ***')
 
 # =========================================================
 ## --- main routine --- ##
-N = 4  # number of stairs
-# N = 45
+N = int(input())
 
 DP = [0 for _ in range(N)]
 
@@ -20,10 +19,20 @@ for ii in range(0, N-1):
 print(f'{DP = }')
 print(DP[-1])
 
+'''
+[case a]  stairs
+5
+
+[case b]  dangeon consumption time
+45
+
+'''
 # =========================================================
 # terminal log / terminal log / terminal log /
 '''
 *** DP; dynamic programing: stairs_forward ***
-DP = [1, 2, 3, 5]
 5
+DP = [1, 2, 3, 5, 8]
+8
+
 '''

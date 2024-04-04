@@ -1,22 +1,25 @@
-## gm_graph_distance_bfs.py: Coded by Kinya MIURA, 240207
-## graph structure: distance: breadth first serch
+## gm_GS_distance_weighted_BFS.py: Coded by Kinya MIURA, 240207
+## graph structure: weighted distance: breadth first serch
+
+# ---------------------------------------------------------
+print('*** GS_BFS; graph structure: distance weighted ***')
+
+# =========================================================
+## --- main routine --- ##
 
 from collections import deque
 
-NM = '9 9'
-S = '8'
-L = ['1 2', '1 3', '2 4', '2 5', '3 6', '4 7', '6 8', '6 9', '7 9']
-# -----------------------------
-
-N, M = map(int, NM.split())
-S = int(S) - 1
+N, M = map(int, input().split())
 
 links = [[] for _ in range(N)]
-for Li in L:
-    uu, vv = map(lambda x: int(x)-1, int, Li.split())
-    links[uu].append(vv)
-    links[vv].append(uu)
+for _ in range(M):
+    uu, vv, ww = map(int, input().split())
+    uu, vv = uu - 1, vv - 1
+    links[uu].append((vv, ww))
+    links[vv].append((uu, ww))
 print(f'{links = }')
+
+S = 1 - 1
 
 def bfs(nodeo):
     global visited, distance
@@ -26,8 +29,8 @@ def bfs(nodeo):
     nodes = deque([nodeo])
     while len(nodes) > 0:
         nodeo = nodes.popleft()
-        for node in links[nodeo]:
-            dist = distance[nodeo] + 1
+        for node, weight in links[nodeo]:
+            dist = distance[nodeo] + weight
             if not visited[node] or distance[node] > dist:
                 visited[node] = True
                 distance[node] = dist
@@ -42,6 +45,33 @@ print(f'{distance = }')
 
 
 '''
+[case a]  tree structure
+9 8
+1 2 10
+1 3 20
+2 4 30
+2 5 40
+3 6 20
+4 7 30
+6 8 40
+6 9 10
+
+'''
+
+
+'''
+# =========================================================
+# terminal log / terminal log / terminal log /
+*** GS_BFS; graph structure: distance weighted ***
+9 8
+1 2 10
+1 3 20
+2 4 30
+2 5 40
+3 6 20
+4 7 30
+6 8 40
+6 9 10
 links = [[(1, 10), (2, 20)], [(0, 10), (3, 30), (4, 40)], [(0, 20), (5, 20)], [(1, 30), (6, 30)], [(1, 40)], [(2, 20), (7, 40), (8, 10)], [(3, 30)], [(5, 40)], [(5, 10)]]
 nodeo = 0, nodes = deque([1, 2]), visited = [True, True, True, False, False, False, False, False, False], distance = [0, 10, 20, 0, 0, 0, 0, 0, 0]
 nodeo = 1, nodes = deque([2, 3, 4]), visited = [True, True, True, True, True, False, False, False, False], distance = [0, 10, 20, 40, 50, 0, 0, 0, 0]
@@ -54,5 +84,7 @@ nodeo = 7, nodes = deque([8]), visited = [True, True, True, True, True, True, Tr
 nodeo = 8, nodes = deque([]), visited = [True, True, True, True, True, True, True, True, True], distance = [0, 10, 20, 40, 50, 40, 70, 80, 50]
 visited = [True, True, True, True, True, True, True, True, True]
 distance = [0, 10, 20, 40, 50, 40, 70, 80, 50]
+
 '''
+
 

@@ -7,8 +7,9 @@ print('*** DP; dynamic programing: dangeons_2 shortest route ***')
 # =========================================================
 ## --- main routine --- ##
 
-N, A, B = 5, [2, 4, 1, 3], [5, 3, 3]  # number of dangeon, time consumptions
-N, A, B = 10, [1, 19, 75, 37, 17, 16, 33, 18, 22], [41, 28, 89, 74, 98, 43, 42, 31]
+N = int(input())
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
 
 DP = [None for i in range(N)]  # time consumption
 DJ = [None for _ in range(N)]  # previous dangeon increment
@@ -29,14 +30,29 @@ while P[-1] > 0:
 print(len(P))
 print(*reversed(P))
 
+'''
+[case a]  dangeon consumption time
+5
+2 4 1 3
+5 3 3
+
+[case b]  dangeon consumption time
+10
+1 19 75 37 17 16 33 18 22
+41 28 89 74 98 43 42 31
+
+'''
+
 # =========================================================
 # terminal log / terminal log / terminal log /
 '''
-*** DP; dynamic programing: dangeons_2 shortest route ***
-DP = [0, 0, 2, 5, 5, 8]
-DJ = [0, 0, 1, 1, 2, 4]
+5
+2 4 1 3
+5 3 3
+DP = [0, 2, 5, 5, 8]
+DJ = [0, 1, 2, 2, 1]
 8
 4
-1 2 4 5
+0 1 3 4
 '''
 

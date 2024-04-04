@@ -9,7 +9,7 @@ number = 8000
 cubics = []  # 'list' of square numbers
 for num in range(1, number+1):
     nn = round(num ** (1/3))
-    if num == num == nn ** 3:
+    if num == nn ** 3:
         cubics.append(num)
 print(f'{number = }')
 print(f'{cubics = }')
