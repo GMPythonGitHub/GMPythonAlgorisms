@@ -1,4 +1,4 @@
-# gm_matrix_equation_xx_list: coded by Kinya MIURA 231104
+# gm_matrix_equation_b0_xx_list: coded by Kinya MIURA 231104
 # ---------------------------------------------------------
 print('\n*** Matrix Equation with list: aa * xx = bb; find xx ***')
 # ---------------------------------------------------------

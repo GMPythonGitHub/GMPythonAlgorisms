@@ -1,31 +1,30 @@
-# gm_matrix_equation_bb_arrray: coded by Kinya MIURA 231104
+# gm_matrix_equation_b2_xx_array_func: coded by Kinya MIURA 231104
 # ---------------------------------------------------------
-print('\n*** Matrix Equation with array: aa * xx = bb; find bb ***')
+print('\n*** Matrix Equation with array func: aa * xx = bb; find xx ***')
 # ---------------------------------------------------------
 ## --- importing item from module --- ##
-from numpy import array
+from numpy import (array, linalg)
 
 # =========================================================
 ## --- setting matrix equation --- ##
 aa1 = array([ [1., 1., 1., 1.], [1., 2., 1., 1.],
               [1., 1., 3., 1.], [1., 1., 1., 4.] ])
+bb1 = array([10., 12., 16., 22.])
 aa2 = array([ [1., 1., 1., 1.], [1., 1., 2., 1.],
               [1., 3., 1., 1.], [4., 1., 1., 1.] ])
-xx = array([1., 2., 3., 4.])
-bb = array([0., 0., 0., 0.])
-aa = aa2
-rank = len(bb)
+bb2 = array([10., 13., 14., 13.])
+xx = array([0., 0., 0., 0.])
+aa, bb = aa1, bb1
 
 # =========================================================
 ## --- main process --- ##
-for i, aai in enumerate(aa):
-    bb[i] = sum(aai * xx)
+xx = linalg.solve(aa, bb)  # solving equation
 print(f'{aa = }\n{xx = }\n{bb = }')
 
 # =========================================================
 # terminal log / terminal log / terminal log /
 '''
-*** Matrix Equation with array: aa * xx = bb; find bb ***
+*** Matrix Equation with array func: aa * xx = bb; find xx ***
 aa = array([ [1., 1., 1., 1.], [1., 2., 1., 1.],
              [1., 1., 3., 1.], [1., 1., 1., 4.] ])
 xx = array([1., 2., 3., 4.])

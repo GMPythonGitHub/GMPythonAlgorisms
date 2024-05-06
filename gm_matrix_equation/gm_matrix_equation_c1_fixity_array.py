@@ -1,4 +1,4 @@
-# gm_matrix_equation_fix_array: coded by Kinya MIURA 231104
+# gm_matrix_equation_c1_fixity_array: coded by Kinya MIURA 231104
 # ---------------------------------------------------------
 print('\n*** Matrix Equation with array: aa * xx = bb; solve with fixity ***')
 # ---------------------------------------------------------
