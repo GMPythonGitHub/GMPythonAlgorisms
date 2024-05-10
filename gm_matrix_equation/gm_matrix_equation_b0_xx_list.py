@@ -2,23 +2,24 @@
 # ---------------------------------------------------------
 print('\n*** Matrix Equation with list: aa * xx = bb; find xx ***')
 # ---------------------------------------------------------
-## --- importing item from module --- ##
+print('### --- section_module: importing items from module --- ###')
 import copy
 
 # =========================================================
-## --- setting matrix equation --- ##
-aa1 = [ [1., 1., 1., 1.], [1., 2., 1., 1.],
-        [1., 1., 3., 1.], [1., 1., 1., 4.] ]
-bb1 = [10., 12., 16., 22.]
-aa2 = [ [1., 1., 1., 1.], [1., 1., 2., 1.],
-        [1., 3., 1., 1.], [4., 1., 1., 1.] ]
-bb2 = [10., 13., 14., 13.]
+print('### --- section_setting --- ###')
+aa1 = [ [1, 1, 1, 1], [1, 2, 1, 1],
+        [1, 1, 3, 1], [1, 1, 1, 4] ]
+bb1 = [10, 12, 16, 22]
+aa2 = [ [1, 1, 1, 1], [1, 1, 2, 1],
+        [1, 3, 1, 1], [4, 1, 1, 1] ]
+bb2 = [10, 13, 14, 13]
 xx = [0., 0., 0., 0.]
-aa, bb = aa2, bb2
+
+aa, bb = aa1, bb1
 rank = len(bb)
 
 # =========================================================
-## --- main process --- ##
+print('### --- section_solving --- ###')
 aa_wk = copy.deepcopy(aa)
 bb_wk = copy.deepcopy(bb)
 # forward elimination with pivoting

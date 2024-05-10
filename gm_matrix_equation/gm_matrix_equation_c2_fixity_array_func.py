@@ -6,31 +6,35 @@ print('\n*** Matrix Equation with array func: aa * xx = bb; solve with fixity **
 from numpy import (array, dot, ix_, linalg, logical_not as loginot)
 
 # =========================================================
-## --- setting matrix equation ---
-aa1 = array([ [1., 1., 1., 1.], [1., 2., 1., 1.],
-              [1., 1., 3., 1.], [1., 1., 1., 4.] ])
-bb1 = array([0., 12., 16., 0.])
-xx1 = array([1., 0., 0., 4.])
-fix_bb1 = [False, True, True, False]
-fix_xx1 = [True, False, False, True]
-aa2 = array([ [1., 1., 1., 1.], [1., 1., 2., 1.],
-              [1., 3., 1., 1.], [4., 1., 1., 1.] ])
-bb2 = array([0., 13., 0., 13.])
-xx2 = array([0., 2., 0., 4.])
-fix_bb2 = [False, True, False, True]
-fix_xx2 = [False, True, False, True]
-aa, bb, xx, fix_bb, fix_xx = aa1, bb1, xx1, fix_bb1, fix_xx1
+print('### --- section_setting --- ###')
+aa1 = ( (1, 1, 1, 1), (1, 2, 1, 1),
+        (1, 1, 3, 1), (1, 1, 1, 4) )
+xx1 = (1, 0, 0, 4)
+bb1 = (0, 12, 16, 0)
+fix_xx1 = (True, False, False, True)
+fix_bb1 = (False, True, True, False)
+aa2 = ( (1, 1, 1, 1), (1, 1, 2, 1),
+        (1, 3, 1, 1), (4, 1, 1, 1) )
+xx2 = (0, 2, 0, 4)
+bb2 = (0, 13, 0, 13)
+fix_xx2 = (False, True, False, True)
+fix_bb2 = (False, True, False, True)
+
+aa = array(aa1, dtype='float64')
+xx = array(xx1, dtype='float64')
+bb = array(bb1, dtype='float64')
+fix_xx = fix_xx1
+fix_bb = fix_bb1
 
 # =========================================================
-## --- main process --- ##
+print('### --- section_solving --- ###')
 aa_wk = aa[ix_(fix_bb,loginot(fix_xx))]
-bb_wk = bb[fix_bb] - dot(aa[ix_(fix_bb,loginot(fix_xx))], xx[fix_xx])
+bb_wk = bb[ix_(fix_bb)] - dot(aa[ix_(fix_bb,fix_xx)], xx[ix_(fix_xx)])
 xx_wk = linalg.solve(aa_wk, bb_wk)  # solving equation
-xx[loginot(fix_xx)] = xx_wk
+xx[ix_(loginot(fix_xx))] = xx_wk
 bb = dot(aa, xx)
 print(f'{aa = }\n{xx = }\n{bb = }\n{fix_bb = }\n{fix_xx = }')
 
-# =========================================================
 # =========================================================
 # terminal log / terminal log / terminal log /
 '''

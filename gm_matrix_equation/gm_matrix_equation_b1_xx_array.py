@@ -2,24 +2,27 @@
 # ---------------------------------------------------------
 print('\n*** Matrix Equation with array: aa * xx = bb; find xx ***')
 # ---------------------------------------------------------
-## --- importing item from module --- ##
+print('### --- section_module: importing items from module --- ###')
 from numpy import (array, diag)
 import copy
 
 # =========================================================
-## --- setting matrix equation --- ##
-aa1 = array([ [1., 1., 1., 1.], [1., 2., 1., 1.],
-              [1., 1., 3., 1.], [1., 1., 1., 4.] ])
-bb1 = array([10., 12., 16., 22.])
-aa2 = array([ [1., 1., 1., 1.], [1., 1., 2., 1.],
-              [1., 3., 1., 1.], [4., 1., 1., 1.] ])
-bb2 = array([10., 13., 14., 13.])
-xx = array([0., 0., 0., 0.])
-aa, bb = aa2, bb2
+print('### --- section_setting --- ###')
+aa1 = ( (1, 1, 1, 1), (1, 2, 1, 1),
+        (1, 1, 3, 1), (1, 1, 1, 4) )
+bb1 = (10, 12, 16, 22)
+aa2 = ( (1, 1, 1, 1), (1, 1, 2, 1),
+        (1, 3, 1, 1), (4, 1, 1, 1) )
+bb2 = (10, 13, 14, 13)
+xx = (0, 0, 0, 0)
+
+aa = array(aa1, dtype='float64')
+xx = array(xx, dtype='float64')
+bb = array(bb1, dtype='float64')
 rank = len(bb)
 
 # =========================================================
-## --- main process --- ##
+print('### --- section_solving --- ###')
 aa_wk = copy.deepcopy(aa)
 bb_wk = copy.deepcopy(bb)
 # forward elimination with pivoting
@@ -46,12 +49,12 @@ print(f'{aa = }\n{xx = }\n{bb = }')
 # terminal log / terminal log / terminal log /
 '''
 *** Matrix Equation with array: aa * xx = bb; find xx ***
-aa = array([[1., 1., 1., 1.], [1., 2., 1., 1.],
-    [1., 1., 3., 1.], [1., 1., 1., 4.]])
-xx = array([1., 2., 3., 4.])
-bb = array([10., 12., 16., 22.])
-aa = array([[1., 1., 1., 1.], [1., 1., 2., 1.],
-    [1., 3., 1., 1.], [4., 1., 1., 1.]])
-xx = array([1., 2., 3., 4.])
-bb = array([10., 13., 14., 13.])
+aa = array([[1, 1, 1, 1], [1, 2, 1, 1],
+    [1, 1, 3, 1], [1, 1, 1, 4]])
+xx = array([1, 2, 3, 4])
+bb = array([10, 12, 16, 22])
+aa = array([[1, 1, 1, 1], [1, 1, 2, 1],
+    [1, 3, 1, 1], [4, 1, 1, 1]])
+xx = array([1, 2, 3, 4])
+bb = array([10, 13, 14, 13])
 '''
